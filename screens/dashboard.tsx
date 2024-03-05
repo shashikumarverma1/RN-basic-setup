@@ -1,13 +1,21 @@
 import { useState } from "react";
-import { TextInput, View, Text, Pressable, StyleSheet } from "react-native";
+import {
+  TextInput,
+  View,
+  Text,
+  Pressable,
+  StyleSheet,
+  Dimensions,
+} from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 // import { Button } from "../components/buttons/button";
 import { VerticleCard } from "../components/verticleCard";
 import { HorizontalCard } from "../components/horizontalCard";
+import { Button } from "../components/buttons/Button";
 export const Dashboard = ({ navigation }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  const windowWidth = Dimensions.get("window").width;
   const handleLogin = () => {
     // Handle login logic here
     console.log("Username:", username);
@@ -15,37 +23,50 @@ export const Dashboard = ({ navigation }) => {
   };
 
   return (
-    <ScrollView style={{marginTop:50}}>
-    
-      {/* <Button
-        bgcolor="grey"
-        color="#ffff"
-        borderRadius={5}
-        justify="center"
-        text="signin"
-        textsize={18}
-        bordercolor="green"
-        fn={() => console.log("click")}
-        width=''
-        height=''
-      /> */}
-        {/* <Button
-        bgcolor=""
-        color="green"
-        borderRadius={10}
-        justify="center"
-        text="signin"
-        textsize={18}
-        bordercolor="red"
-        fn={() => navigation.openDrawer()}
-        width=''
-        height=''
-      /> */}
-      <Pressable onPress={() => navigation.openDrawer()}>
-        <Text style={{ textAlign: "center" }}>open</Text>
-      </Pressable>
-      <VerticleCard/>
-      <HorizontalCard/>
+    <ScrollView style={{ marginTop: 50 }}>
+      <View>
+        <Text style={{ textAlign: "center", padding: 10, fontWeight: "bold" }}>
+          Buttons
+        </Text>
+      </View>
+      <View
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          flexDirection: "row",
+          marginBottom: 5,
+        }}
+      >
+        <Pressable
+          onPress={() => navigation.openDrawer()}
+          style={{
+            backgroundColor: "#0D88C3",
+            height: 45,
+            width: windowWidth / 1.05,
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: 5,
+            borderWidth: 1,
+            borderColor: "grey",
+          }}
+          // onPress={() => signUpHandle()}
+        >
+          <Text style={{ color: "#ffff", fontWeight: "800" }}>Open</Text>
+        </Pressable>
+      </View>
+      <Button />
+      <View>
+        <Text style={{ textAlign: "center", padding: 10, fontWeight: "bold" }}>
+          Verticle Card
+        </Text>
+      </View>
+      <VerticleCard />
+      <View>
+        <Text style={{ textAlign: "center", padding: 10, fontWeight: "bold" }}>
+          Horizontal Card
+        </Text>
+      </View>
+      <HorizontalCard />
     </ScrollView>
   );
 };
