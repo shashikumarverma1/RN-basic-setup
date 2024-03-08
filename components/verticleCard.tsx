@@ -1,92 +1,123 @@
-import { useState } from "react";
+import React from "react";
 import {
-    TextInput,
+    SafeAreaView,
     View,
-    Text,
-    Pressable,
+    FlatList,
     StyleSheet,
-    Dimensions,
-    Image,
+    Text,
+    StatusBar, Image, Pressable, Dimensions,
 } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
-// import { Button } from "./buttons/button";
 const windowWidth = Dimensions.get("window").width;
-
-export const VerticleCard = (
+const DATA = [
     {
-        //   bgcolor,
-        //   color,
-        //   text,
-        //   borderRadius,
-        //   bordercolor,
-        //   justify,
-        //   fn,
-        //   width,
-        //   height,
-        //   textsize
-    }
-) => {
+        id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+        title: "First Item",
+    },
+    {
+        id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
+        title: "Second Item",
+    },
+    {
+        id: "58694a0f-3da1-471f-bd96-145571e29d72",
+        title: "Third Item",
+    },
+    {
+        id: "bd7acbea-c1b1-46c2-aed5-3ad53abb2lk8ba",
+        title: "First Item",
+    },
+    {
+        id: "3ac68afc-c605-48d3-a4f8-fbd91aa9l7f63",
+        title: "Second Item",
+    },
+    {
+        id: "58694a0f-3da1-471f-bd96-145571ek29d72",
+        title: "Third Item",
+    },
+];
+
+// type ItemProps = {title: string};
+
+// eslint-disable-next-line @typescript-eslint/no-shadow, @typescript-eslint/no-unused-vars
+const Item = ({ item }: any) => {
+
     return (
-        <ScrollView horizontal={true}>
-           
-            {
-                [1, 1, 1, 1, 1, 1,].map((e, i) => {
-                    return (
-                        <View
-                            key={i}
-                            style={{ width: 200, margin: 10 }}
-                        //    style={styles.user}
-                        >
-                            <Image
-                                style={{ width: 200, height: 200, marginBottom: 10 }}
-                                resizeMode="cover"
-                                source={{
-                                    uri: "https://reactnative.dev/img/tiny_logo.png",
-                                }}
-                            />
+        <View
+            // key={i}
+            style={styles.cardwidth}
+        //    style={styles.user}
+        >
+           <Image
+        style={{width:150, height:150}}
+        source={{
+          uri: 'https://reactnative.dev/img/tiny_logo.png',
+        }}
+      />
 
-                            <View style={{ display: "flex", justifyContent: "center", flexDirection: 'row', marginBottom: 5 }}>
-                                <Pressable
-                                    style={{
-                                        backgroundColor: "#0D88C3",
-                                        height: 45,
-                                        width: 200,
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        borderRadius: 5,
-                                        borderWidth: 1,
-                                        borderColor: "grey"
-                                    }}
-                                // onPress={() => signUpHandle()}
-                                >
-                                    <Text style={{ color: "#ffff", fontWeight: "800" }}>Signup</Text>
-                                </Pressable>
+            <View
+                style={styles.center}
+            >
+                <Pressable
+                    style={styles.button}
+                // onPress={() => signUpHandle()}
+                >
+                    <Text
+                        style={styles.buttontext}
+                    >
 
-                            </View>
-                        </View>
-                    )
-                })
-            }
-        </ScrollView>
+                        Test name
+                    </Text>
+                </Pressable>
+            </View>
+        </View>
+    )
+}
+
+export const VerticleCard = () => {
+    return (
+        <SafeAreaView
+        >
+            <FlatList
+                numColumns={2}
+                data={DATA}
+                renderItem={(item) => <Item item={item} />}
+                keyExtractor={item => item.id}
+            />
+        </SafeAreaView>
     );
 };
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "center",
+
+
+
+export const styles = StyleSheet.create({
+    button: {
         alignItems: "center",
-        paddingHorizontal: 20,
+        // backgroundColor: "#0D88C3",
+        borderColor: "grey",
+        // borderRadius: 5,
+        // borderWidth: 1,
+        // height: 25,
+        justifyContent: "center",
+        width: windowWidth/2.2,
     },
-    label: {
+    buttontext:{color: "#000000", fontSize:12 , fontWeight: "600" , letterSpacing:-.1 , lineHeight:15.6, paddingBottom:10, paddingTop:8},
+    cardwidth:{
+        marginHorizontal:windowWidth/22 ,
+        width: windowWidth/2.7,
+        
+    },
+    center:{
+        alignItems:"center",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
         marginBottom: 5,
     },
-    input: {
-        width: "100%",
-        height: 40,
-        borderWidth: 1,
-        borderColor: "#ccc",
-        borderRadius: 5,
-        paddingHorizontal: 10,
-        marginBottom: 20,
+    container: {
+        alignItems: "center",
+        flex: 1,
+        justifyContent: "center",
+        paddingHorizontal: 20,
     },
+    img:{ width: 175 },
 });
+

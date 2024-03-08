@@ -9,7 +9,7 @@ import {
   Image,
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { Button } from "./buttons/button";
+
 const windowWidth = Dimensions.get("window").width;
 
 export const HorizontalCard = (
