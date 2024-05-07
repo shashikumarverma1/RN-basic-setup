@@ -40,6 +40,15 @@ const CustomSidebarMenu = ({ navigation }: { navigation: any }) => {
         >
           <Text style={[styles.subheading, styles.subHeadingBold]}>Signin</Text>
         </Pressable>
+        <Pressable
+          style={styles.button}
+          onPress={() => {
+            // console.log("click" , navigation)
+            navigation.closeDrawer();
+          }}
+        >
+          <Text style={[styles.subheading, styles.subHeadingBold , {color:"red",  textAlign:"right",  paddingLeft:200}]}>close</Text>
+        </Pressable>
       </ScrollView>
     </SafeAreaView>
   );
