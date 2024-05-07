@@ -10,7 +10,6 @@ import BottomTabs from "./bottomNavigation";
 const Drawer = createDrawerNavigator();
 
 function DraweNavigation() {
-
   return (
     <Drawer.Navigator
       screenOptions={{
@@ -18,11 +17,15 @@ function DraweNavigation() {
         itemStyle: { marginVertical: 5 },
         headerShown: false,
       }}
-      drawerContent={(props) => <CustomSidebarMenu {...props} />}>
-          { true ?     <Drawer.Screen name="BottomTabs" component={BottomTabs} /> :    <Drawer.Screen name="Signup" component={Signup} />}
-         
-        
-          {/* <Drawer.Screen name="Login" component={Login} /> */}
+      drawerContent={(props) => <CustomSidebarMenu {...props} />}
+    >
+      {true ? (
+        <Drawer.Screen name="BottomTabs" component={BottomTabs} />
+      ) : (
+        <Drawer.Screen name="Signup" component={Signup} />
+      )}
+
+      {/* <Drawer.Screen name="Login" component={Login} /> */}
     </Drawer.Navigator>
   );
 }

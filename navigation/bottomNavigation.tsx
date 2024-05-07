@@ -4,6 +4,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import DrawerNavigatiom from "./drawerNavigation";
 import { Dashboard, Login, Signup } from "../screens";
 import { useNavigation } from "@react-navigation/native";
+import RootStack from "./rootStack";
 
 // import RootStack from "./rootStack";
 const Tab = createBottomTabNavigator();
@@ -48,8 +49,18 @@ function BottomTabs() {
       />
       <Tab.Screen
         name="Signup"
-        component={Signup}
+        component={RootStack}
        
+      />
+        <Tab.Screen
+        name="Back"
+        component={RootStack}
+        listeners={() => ({
+          tabPress: (e) => {
+            e.preventDefault();
+            navigation.goBack();
+          },
+        })}
       />
     
     </Tab.Navigator>

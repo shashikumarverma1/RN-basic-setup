@@ -49,6 +49,24 @@ const CustomSidebarMenu = ({ navigation }: { navigation: any }) => {
         >
           <Text style={[styles.subheading, styles.subHeadingBold , {color:"red",  textAlign:"right",  paddingLeft:200}]}>close</Text>
         </Pressable>
+        
+        <Pressable
+          style={styles.button}
+          onPress={() => {
+            navigation.navigate("MainScreen");
+          }}
+        >
+          <Text style={[styles.subheading, styles.subHeadingBold , {color:"red",  textAlign:"right",  paddingLeft:150}]}>MainScreen</Text>
+        </Pressable>
+        
+        <Pressable
+          style={styles.button}
+          onPress={() => {
+            navigation.navigate("Profile");
+          }}
+        >
+          <Text style={[styles.subheading, styles.subHeadingBold]}>Profile</Text>
+        </Pressable>
       </ScrollView>
     </SafeAreaView>
   );
