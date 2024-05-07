@@ -12,6 +12,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import { VerticleCard } from "../components/verticleCard";
 import { HorizontalCard } from "../components/horizontalCard";
 import { Button } from "../components/buttons/Button";
+import { ScrollCard } from "../components/scrollCard";
 export const Dashboard = ({ navigation }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -55,18 +56,22 @@ export const Dashboard = ({ navigation }) => {
         </Pressable>
       </View>
       <Button />
+      <Text style={{ textAlign: "center", padding: 10, fontWeight: "bold" }}>
+          Scroll Card
+        </Text>
+      <ScrollCard/>
       <View>
         <Text style={{ textAlign: "center", padding: 10, fontWeight: "bold" }}>
           Verticle Card
         </Text>
       </View>
-      <VerticleCard />
+      {/* <VerticleCard /> */}
       <View>
         <Text style={{ textAlign: "center", padding: 10, fontWeight: "bold" }}>
           Horizontal Card
         </Text>
       </View>
-      <HorizontalCard />
+      {/* <HorizontalCard /> */}
     </ScrollView>
   );
 };

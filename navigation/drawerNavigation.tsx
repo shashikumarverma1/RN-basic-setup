@@ -23,7 +23,7 @@ function DraweNavigation() {
       {!true ? (
         <Drawer.Screen name="BottomTabs" component={BottomTabs} />
       ) : (
-        <Drawer.Screen name="Profile" component={Profile} />
+        <Drawer.Screen name="Dashboard" component={Dashboard} />
       )}
   
   
