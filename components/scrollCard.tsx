@@ -28,9 +28,7 @@ export const ScrollCard = (
   }
 ) => {
   return (
-    <ScrollView > 
-    <View style={{display:"flex" , justifyContent:"center" , flexDirection:"row"}}>
-   <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
    {[1, 1, 1, 1, 1, 1].map((e, i) => {
         return (
           <View
@@ -63,8 +61,6 @@ export const ScrollCard = (
         );
       })}
    </ScrollView>
-    </View>
-    </ScrollView>
   );
 };
 const styles = StyleSheet.create({
