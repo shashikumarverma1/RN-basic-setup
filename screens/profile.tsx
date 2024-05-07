@@ -8,6 +8,7 @@ import {
   Dimensions,
   Image,
 } from "react-native";
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { ScrollView } from "react-native-gesture-handler";
 
 const windowWidth = Dimensions.get("window").width;
@@ -27,42 +28,39 @@ export const Profile = (
   }
 ) => {
   return (
-    <ScrollView>
-    <View style={{display:"flex" , justifyContent:"center" , flexDirection:"row" , marginTop:200}}>
-   <View>
-   {[1, 1, 1, 1, 1, 1].map((e, i) => {
-        return (
-          <View
-            key={i}
-            style={{
-              backgroundColor: "",
-              alignItems: "center",
-              margin: 5,
-              display: "flex",
-              justifyContent: "",
-              flexDirection: "row",
-              borderWidth:1,
-              borderRadius:5,
-              padding:5,
-              borderColor:"grey",
-              width: windowWidth /1.05
-            }}
-            //    style={styles.user}
-          >
-            <Image
+    <ScrollView style={{ marginHorizontal: 20 }}>
+    <View style={{ marginTop: 50 }}>
+     <View style={{display:"flex",  flexDirection:"row"  , alignItems:"center"}}>
+        <View>
+        <Image
               style={{ width: 50, height: 50, borderRadius: 50 }}
               resizeMode="cover"
               source={{
                 uri: "https://reactnative.dev/img/tiny_logo.png",
               }}
             />
-            <Text style={{paddingHorizontal:10, fontWeight:'bold'}}>main Profile</Text>
-          </View>
-        );
-      })}
+        </View>
+        <View><Text style={{marginLeft:20  , fontWeight:"600" , fontSize:20,color:"#666666"}}>Shashi kumar verma</Text></View>
+     </View>
+   <View style={{marginTop:20}}>
+   {  [1,1,1].map((e)=>{
+    return (
+        <View style={{display:"flex",  flexDirection:"row"  , alignItems:"center", paddingHorizontal:10 , paddingVertical:5}}>
+        <View>
+        <Ionicons name='call' size={20}  />
+        </View>
+        <View>
+            <Text  style={{marginLeft:20  , fontWeight:"600" , fontSize:18,color:"#666666"}}>Name</Text>
+            <Text style={{marginLeft:20  , fontWeight:"600" , fontSize:12,color:"#666666"}}>Shashi kumar verma</Text></View>
+     </View>
+    )
+   })}
    </View>
+
+   
+   
     </View>
-    </ScrollView>
+  </ScrollView>
   );
 };
 const styles = StyleSheet.create({

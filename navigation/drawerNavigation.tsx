@@ -6,6 +6,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import CustomSidebarMenu from "../components/customSideBarMenu";
 import { Dashboard, Login, Signup } from "../screens";
 import BottomTabs from "./bottomNavigation";
+import { Profile } from "../screens/profile";
 
 const Drawer = createDrawerNavigator();
 
@@ -19,13 +20,13 @@ function DraweNavigation() {
       }}
       drawerContent={(props) => <CustomSidebarMenu {...props} />}
     >
-      {true ? (
+      {!true ? (
         <Drawer.Screen name="BottomTabs" component={BottomTabs} />
       ) : (
-        <Drawer.Screen name="Signup" component={Signup} />
+        <Drawer.Screen name="Profile" component={Profile} />
       )}
-
-      {/* <Drawer.Screen name="Login" component={Login} /> */}
+  
+  
     </Drawer.Navigator>
   );
 }
